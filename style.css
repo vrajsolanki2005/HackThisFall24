@@ -1,0 +1,207 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif; /* Set a default font for the body */
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+    background-color: #7ea8d4; /* Header background color */
+    color: white; /* Text color */
+}
+.header-left {
+    display: flex; /* Use flexbox for logo and name */
+    align-items: center; /* Center items vertically */
+}
+
+.brand{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.header button {
+    font-weight: bold; /* Bold text for buttons */
+    background-color: transparent; /* Transparent background for buttons */
+    color: white; /* Button text color */
+    border: 2px solid white; /* White border for buttons */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding for buttons */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+/* make sign-in button at right*/
+.login-button{
+    margin-left: 60rem;
+    border-radius: 10px;
+}
+/* Hero Section */
+.hero-section {
+    position: relative; /* Position relative for absolute positioning of child elements */
+    height: 50vh; /* Full viewport height */
+    background-image: url('hero-img.jpg'); /* Background image for the hero section */
+    background-size: cover; /* Ensure the background image covers the entire section */
+    background-position: center; /* Center the image */
+    color: white; /* Text color */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    text-align: center; /* Center text */
+    padding: 20px; /* Padding for the section */
+}
+
+.hero-title {
+    font-size: 48px; /* Large font size for the title */
+    font-weight: bold; /* Bold title */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+.hero-subtitle {
+    font-size: 24px; /* Smaller font size for the subtitle */
+    margin-bottom: 30px; /* Space below the subtitle */
+}
+
+.hero-button {
+    background-color: #7ea8d4; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 15px 30px; /* Padding for the button */
+    font-size: 18px; /* Font size for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+/* Search Bar Styles */
+.search-bar-container {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    margin-top: 20px; /* Space above the search bar */
+}
+
+.search-input {
+    flex: 1; /* Allow the input to grow and fill available space */
+    padding: 15px; /* Increase padding for a bigger input */
+    font-size: 18px; /* Larger font size */
+    border: 2px solid #007bff; /* Border color */
+    border-radius: 25px; /* Rounded corners */
+    outline: none; /* Remove outline on focus */
+    transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+.search-input:focus {
+    border-color: #0056b3; /* Darker border color on focus */
+}
+
+.search-button {
+    padding: 15px 20px; /* Increase padding for the button */
+    font-size: 18px; /* Match font size with input */
+    border: none; /* No border */
+    border-radius: 25px; /* Rounded corners */
+    background-color: #007bff; /* Button background color */
+    color: white; /* Button text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    margin-left: 10px; /* Space between input and button */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.search-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+.hero-button:hover {
+    background-color: #5a8cb2; /* Darker shade on hover */
+}
+
+/* Popular Destinations Section */
+.popular-destinations-section {
+    text-align: center;
+    padding: 50px 20px; /* Padding for the section */
+    background-image: url('bg1.jpg');
+    background-size: cover; /* Ensures the background image covers the entire section */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+}
+
+
+    .destination-card {
+        margin: 20px; /* Margin around each destination card */
+        background-color: rgba(255, 255, 255, 0.8); /* Light background for better readability */
+        border-radius: 8px; /* Rounded corners */
+        padding: 20px; /* Padding inside the card */
+        text-align: center; /* Center text inside the card */
+        color: #333; /* Dark text color for readability */
+        font-family: Arial, sans-serif; /* Font family for the text */
+        font-size: 18px; /* Font size for the text */
+    }
+
+
+/* Features Section */
+.features-section {
+    display: flex;
+    flex-direction: column; /* Stack feature cards vertically */
+    padding: 50px 20px;
+    background-color: #333; /* Dark background for features */
+    color: white; /* Text color for features */
+}
+
+.feature-card {
+    background-color: #444; /* Darker background for feature cards */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside feature cards */
+    margin: 20px 0; /* Margin between feature cards */
+    text-align: center; /* Center text inside feature cards */
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    background-color: rgb(230, 219, 219); /* Light background for testimonials */
+    padding: 50px 20px; /* Padding for the section */
+    color: rgb(211, 211, 77); /* Text color for testimonials */
+}
+
+.testimonial-card {
+    background-color: rgb(224, 160, 171); /* White background for testimonial cards */
+    border: 1px solid #ccc; /* Light border for testimonial cards */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside testimonial cards */
+    margin: 20px 0; /* Margin around each testimonial card */
+    font-weight: bold; /* Bold text for testimonials */
+}
+
+/* Additional Styles for Headings */
+h2, h3 {
+    font-weight: bold; /* Bold headings */
+}
+
+/* Footer Styles */
+footer {
+    background-color: rgb(23, 23, 48); /* Footer background color */
+    color: white; /* Text color */
+    padding: 20px; /* Padding for footer */
+    text-align: center; /* Center text in footer */
+}
+
+.footer-content {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+.footer-links, .social-links {
+    margin: 10px 0; /* Add margin for spacing */
+}
+
+.footer a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Underline on hover */
+}

@@ -1,0 +1,7 @@
+Header: Contains the logo and navigation buttons for logging in and signing up.
+Hero Section: Features a catchy headline, a brief description, and a search bar for users to start planning their trips immediately.
+Features Section: Highlights three key benefits of using JourneyGenie - AI-powered recommendations, seamless booking, and smart itinerary management.
+Popular Destinations: Showcases four popular travel destinations to inspire users and demonstrate the variety of trips that can be planned with JourneyGenie.
+Testimonials: Displays positive feedback from users to build trust and credibility.
+Call-to-Action: Encourages users to start planning their trip with a prominent button.
+Footer: Contains copyright information.

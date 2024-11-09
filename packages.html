@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Packages and Itinerary</title>
+    <link rel="stylesheet" href="packages.css">
+</head>
+<body>
+    <div class="header">
+        <h1 class="brand">JourneyGenie</h1>
+        <button class="login-button"><a href="form.html">Login</a></button>
+        <button class="signup-button"><a href="form.html">Sign Up</a></button>
+    </div>
+    
+    <div class="packages-section">
+        <h2>Travel Packages</h2>
+        <div class="package-card">
+            <h3>Package 1: Bali Adventure</h3>
+            <p>Includes flights, accommodation, and guided tours.</p>
+            <p>Price: $1200</p>
+        </div>
+        <div class="package-card">
+            <h3>Package 2: Goa Getaway</h3>
+            <p>Includes flights, beach resort stay, and activities.</p>
+            <p>Price: $800</p>
+        </div>
+        <div class="package-card">
+            <h3>Package 3: Kerala Retreat</h3>
+            <p>Includes flights, houseboat stay, and sightseeing.</p>
+            <p>Price: $950</p>
+        </div>
+    </div>
+    <h1>Package Management</h1>
+    <h2>Add a New Package</h2>
+    <form id="packageForm">
+        <input type="text" id="packageName" placeholder="Package Name" required>
+        <input type="text" id="packageDetails" placeholder="Package Details" required>
+        <button type="submit">Add Package</button>
+    </form>
+
+    <h2>Your Packages</h2>
+    <div id="packages"></div>
+
+    <script>
+        // Function to fetch packages
+        function fetchPackages() {
+            fetch('/api/packages')
+                .then(response => response.json())
+                .then(data => {
+                    const packagesDiv = document.getElementById('packages');
+                    packagesDiv.innerHTML = ''; // Clear existing packages
+                    data.forEach(item => {
+                        const packageItem = document.createElement('div');
+                        packageItem.textContent = `${item.name}: ${item.details}`;
+                        packagesDiv.appendChild(packageItem);
+                    });
+                })
+                .catch(error => console.error('Error fetching packages:', error));
+        }
+
+        // Event listener for form submission
+        document.getElementById('packageForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const packageName = document.getElementById('packageName').value;
+            const packageDetails = document.getElementById('packageDetails').value;
+
+            fetch('/api/packages', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name: packageName, details: packageDetails })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('New package added:', data);
+                fetchPackages(); // Refresh the list of packages
+            })
+            .catch(error => console.error('Error adding package:', error));
+        });
+
+        // Fetch packages on page load
+        fetchPackages();
+    </script>
+
+    <div class="itinerary-section">
+        <h2>Your Itinerary</h2>
+        <p>Day 1: Arrival in Bali, explore local markets.</p>
+        <p>Day 2: Beach day and water sports.</p>
+        <p>Day 3: Cultural tour and sunset dinner.</p>
+        <p>Day 4: Departure.</p>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 JourneyGenie. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#about">About Us</a> |
+                <a href="#services">Services</a> |
+                <a href="#contact">Contact</a> |
+                <a href="#privacy">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

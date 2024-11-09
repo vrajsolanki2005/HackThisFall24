@@ -1,0 +1,67 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itinerary App</title>
+</head>
+<body>
+    <h1>Welcome to Itinerary App - Index 1</h1>
+    <p>This is a secondary page for the Itinerary application.</p>
+    <a href="index.html">Go back to main page</a>
+    
+    <h1>Your Itineraries</h1>
+    <div id="itineraries"></div>
+    
+    <h2>Add Itinerary</h2>
+    <form id="itineraryForm">
+        <input type="text" id="userId" placeholder="User  ID" required>
+        <input type="text" id="itinerary" placeholder="Itinerary" required>
+        <button type="submit">Add Itinerary</button>
+    </form>
+
+    <script>
+        // Function to fetch itineraries
+        function fetchItineraries() {
+            fetch('/itineraries')
+                .then(response => response.json())
+                .then(data => {
+                    const itinerariesDiv = document.getElementById('itineraries');
+                    itinerariesDiv.innerHTML = ''; // Clear existing itineraries
+                    data.forEach(item => {
+                        const itineraryItem = document.createElement('div');
+                        itineraryItem.textContent = `${item.userId}: ${item.itinerary}`;
+                        itinerariesDiv.appendChild(itineraryItem);
+                    });
+                })
+                .catch(error => console.error('Error fetching itineraries:', error));
+        }
+
+        // Event listener for form submission
+        document.getElementById('itineraryForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const userId = document.getElementById('userId').value;
+            const itinerary = document.getElementById('itinerary').value;
+
+            fetch('/itineraries', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ userId, itinerary })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('New itinerary added:', data);
+                fetchItineraries(); // Refresh the list of itineraries
+            })
+            .catch(error => console.error('Error adding itinerary:', error));
+        });
+
+        // Fetch itineraries on page load
+        fetchItineraries();
+    </script>
+</body>
+</html>
